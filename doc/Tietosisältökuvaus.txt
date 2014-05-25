@@ -1,0 +1,67 @@
+Tietoisältökuvaus:
+
+Taulu, db_user. Pitää sisällään käyttäjän tidot
+
+user_id				numero				käyttäjän tunnu
+username			merkkijono			käyttäjänimi
+password			merkkijono			salasana
+
+Taulu Pokemon, pitää sisällään pokemonin perustiedot
+
+poke_id				numero				pokemonin numerotunnus
+poke_name			merkkijono			pokemonin nimi
+height				numero				pituus
+weight				numero				paino
+hp					numero				Elämän määrä
+attacks				numero				hyökkäysarvo
+defense				numero				puolustusarvo
+sp_atk				numero				spesiaali hyökkäys
+sp_def				numero				spesiaali puolustus
+speed				numero				nopeus
+ev_yield			numero				EV arvo
+
+Taulu trainer_pokemon, pitää sisällääön käyttäjien omien pokemonien tietoja
+
+poke_id				numero				pokemonin numerotunnus
+trainer_id			user_id				kertoo milel käyttäjälle tämä pokemon kuuluu
+poke_name			merkkijono			pokemonin nimi
+height				numero				pituus
+weight				numero				paino
+hp					numero				Elämän määrä
+attacks				numero				hyökkäysarvo
+defense				numero				puolustusarvo
+sp_atk				numero				spesiaali hyökkäys
+sp_def				numero				spesiaali puolustus
+speed				numero				nopeus
+ev_yield			numero				EV arvo
+
+Taulu types, pitää sisällään tyypit (tuli,vesi,maa jne) ja iiden ID:t
+
+type_id				numero				tyypin ID
+type_name			merkkijono			tyypin nimi
+
+taulu poke_type. Yhteystaulu käyttää poke ID:tä sekä kahta tyyppi ID:tä yhdistämään opkemonit niiden mahdollisiin tyyppeihin
+
+poke_id				poke_id				pokemonin ID
+type1				type_id				tyypin ID
+type2				type_id				tyypin ID
+
+Taulu type_Effectivness. Pitää sisällääön tiedot siitä kuijnka paljon vahinkoa tietyn tyypin hyökkäykset tekevät tiettyä tyyppiä vastaan
+
+attack_type			type_id				hyökkäyksen tyyppi
+defense_type		type_id				puolustajan tyyppi
+damage_rate			type_id				vahingon määrä prosentteina
+
+Taulu moves pitää sisällään liikkeiden tietoja
+
+move_id				numero				liikkeen id
+move_name			merkkijono			liikkeen nimmi
+description			merkkijono			liikkeen kuvaus
+power				numero				liikkeen voima
+move_pp				numero				PP pisteiden määrä
+accuarcy			numero				liikkeen tarkkuus
+
+Taulu poke_moves. Yhdistetaulu sitoo pokemonit liikkeisiin
+
+poke_id				poke_id				pokemonin ID
+move_id				move_id				liikkeen tunnus
