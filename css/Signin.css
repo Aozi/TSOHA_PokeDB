@@ -39,3 +39,8 @@ body {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
+
+body > div.container > form > button {
+    margin-top: 5px;
+    margin-bottom: 15px;
+}

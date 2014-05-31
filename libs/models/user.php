@@ -54,6 +54,24 @@ class user {
         }
         return $tulokset;
     }
+    
+    public static function etsiKayttajaTunnuksilla($kayttaja, $salasana) {
+    $sql = "SELECT id,username, password FROM db_user WHERE username = ? AND password = ? LIMIT 1";
+    $kysely = getTietokantayhteys()->prepare($sql);
+    $kysely->execute(array($kayttaja, $salasana));
+
+    $tulos = $kysely->fetchObject();
+    if ($tulos == null) {
+      return null;
+    } else {
+      $kayttaja = new user(); 
+      $kayttaja->setId($tulos->id);
+      $kayttaja->setUsername($tulos->username);
+      $kayttaja->setPassword($tulos->password);
+
+      return $kayttaja;
+    }
+  }
 
     /* Kirjoita tähän gettereitä ja settereitä */
 }

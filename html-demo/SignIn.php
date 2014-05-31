@@ -1,32 +1,30 @@
-<!DOCTYPE html>
-<html>
+<?php
 
-  <head>
-    <?php 
-        include '../resources/Header.php'; 
-    ?>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Login</title>
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
-    <link href="../css/Signin.css" rel="stylesheet">
-  </head>
+    require_once '../libs/common.php';
+    include '../libs/models/user.php';
 
-  <body>
-      
-    <div class="container">
+    session_start();
+    
+    if (empty($_POST["username"]) || empty($_POST["password"])) {
+        /* Käytetään omassa kirjastotiedostossa määriteltyä näkymännäyttöfunktioita */
+        naytaNakyma("SignIn.php");
+        exit(); // Lopetetaan suoritus tähän. Kutsun voi sijoittaa myös naytaNakyma-funktioon, niin sitä ei tarvitse toistaa joka paikassa
+    }
+    if (empty($_POST["username"])) {
+        naytaNakyma("SignIn.php", array('kayttaja' => $kayttaja, 'virhe' => "Kirjautuminen epäonnistui! Et antanut käyttäjätunnusta"));
+    }
+    $kayttaja = $_POST["username"];
 
-      <form class="form-Signin" role="form">
-        <h2 class="form-Signin-heading">Please sign in</h2>
-        <input type="email" class="form-control" placeholder="Email address" required autofocus>
-        <input type="password" class="form-control" placeholder="Password" required>
-        <label class="checkbox">
-          <input type="checkbox" value="remember-me"> Remember me
-        </label>
-        <button class= "btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-      </form>
-
-    </div>
-  </body>
-</html>
+    if (empty($_POST["password"])) {
+        naytaNakyma("SignIn.php", array('kayttaja' => $kayttaja, 'virhe' => "Kirjautuminen epäonnistui! Et antanut salasanaa"));
+    }
+    $salasana = $_POST["password"];
+    $nimi = $_POST['nimi'];
+    //$user = etsiKayttajaTunnuksilla($kayttaja,$salasana);
+    $user = 1;
+    if(is_null($user)) {
+        naytaNakyma("SignIn.php", array('kayttaja' => $kayttaja, 'virhe' => "Kirjautuminen epäonnistui! Antamasi tunnus tai salasana on väärä.", request));
+    } else {
+        $_SESSION['kirjautunut'] = $user;   
+        naytaNakyma("Etusivu.php");
+    }

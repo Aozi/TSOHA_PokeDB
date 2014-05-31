@@ -19,19 +19,20 @@ CREATE TABLE Pokemon (
 );
 
 CREATE TABLE trainer_pokemon (
-    poke_id             integer NOT NULL PRIMARY KEY,
+    cust_id             SERIAL PRIMARY KEY,
+    poke_id             integer NOT NULL,
     trainer_id          integer references db_user(user_id) NOT NULL,
     poke_name           varchar(20),
-    height              integer,
-    weight              integer,
-    hp                  integer,
-    attack              integer,
-    defense             integer,
-    sp_atk              integer,
-    sp_def              integer,
-    speed               integer,
-    poke_level          integer,
-    ev_yield            integer,
+    height              integer NOT NULL,
+    weight              integer NOT NULL,
+    hp                  integer NOT NULL,
+    attack              integer NOT NULL,
+    defense             integer NOT NULL,
+    sp_atk              integer NOT NULL,
+    sp_def              integer NOT NULL,
+    speed               integer NOT NULL,
+    poke_level          integer NOT NULL,
+    ev_yield            integer NOT NULL,
     on_team             boolean
 );
 
@@ -55,8 +56,8 @@ CREATE TABLE type_effectivness (
 
 CREATE TABLE moves (
     move_id             integer NOT NULL PRIMARY KEY,
-    move_name           varchar(20) NOT NULL,
-    description         varchar(255),
+    move_name           varchar(30) NOT NULL,
+    description         varchar(5000),
     power               integer NOT NULL,
     move_PP             integer NOT NULL,
     accuarcy            integer NOT NULL

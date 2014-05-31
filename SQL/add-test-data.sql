@@ -1,11 +1,3 @@
-INSERT INTO db_user VALUES (1,'test','test');
-INSERT INTO db_user VALUES (2,'test2','test2');
-INSERT INTO db_user VALUES (3,'test3','test3');
-
-
-INSERT INTO Pokemon VALUES (1,'Bulbasaur',5,10,50,100,40,10,10,5,12);
-INSERT INTO Pokemon VALUES (2,'testimooni',54,1550,50,1400,40,10,10,5,12);
-
 INSERT INTO types VALUES (1,'normal');
 INSERT INTO types VALUES (2,'fighting');
 INSERT INTO types VALUES (3,'flying');
@@ -352,12 +344,3 @@ INSERT INTO type_effectivness VALUES (18,15,100);
 INSERT INTO type_effectivness VALUES (18,16,200);
 INSERT INTO type_effectivness VALUES (18,17,200);
 INSERT INTO type_effectivness VALUES (18,18,100);
-
-INSERT INTO poke_type VALUES(1,1,6);
-INSERT INTO poke_type VALUES(2,2,3);
-
-INSERT INTO moves VALUES (1,'tackletest','Taklaa kovaa',100,10,100);
-INSERT INTO moves VALUES (2,'tackletest2','Taklaa kovaa2',1010,105,200);
-
-INSERT INTO poke_moves VALUES (1,1);
-INSERT INTO poke_moves VALUES (2,2)
