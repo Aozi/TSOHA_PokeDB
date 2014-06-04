@@ -20,8 +20,9 @@
     }
     $salasana = $_POST["password"];
     $nimi = $_POST['nimi'];
-    //$user = etsiKayttajaTunnuksilla($kayttaja,$salasana);
-    $user = 1;
+    //e
+    $user = etsiKayttajaTunnuksilla($kayttaja,$salasana);
+    //$user = 1;
     if(is_null($user)) {
         naytaNakyma("SignIn.php", array('kayttaja' => $kayttaja, 'virhe' => "Kirjautuminen epäonnistui! Antamasi tunnus tai salasana on väärä.", request));
     } else {
