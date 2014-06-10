@@ -1,0 +1,17 @@
+root { 
+    display: block;
+}
+
+.scrollist {  
+    height: auto;
+    margin-bottom: auto; 
+    overflow: scroll;
+}
+
+.leftcontainer {
+    margin-top: 50px;
+    margin-bottom: auto;
+    margin-left: auto;
+}
+
+
