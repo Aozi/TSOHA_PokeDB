@@ -101,6 +101,17 @@ class trainer_pokemon {
         $kysely->execute(array($t_id));
         return $kysely->fetchColumn();
     }
+    
+    public static function deletePoke($p_id, $u_id) {
+        $sql = "DELETE FROM trainer_pokemon WHERE cust_id = ? AND trainer_id = ? RETURNING cust_id";
+        $kysely = getTietokantayhteys()->prepare($sql);
+        $ok = $kysely->execute(array($p_id, $u_id));
+        if($ok) {
+            return true;
+        } else {
+            return false;
+        }
+    }
     public function getOn_team() {
         return $this->on_team;
     }
