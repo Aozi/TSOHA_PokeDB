@@ -1,6 +1,7 @@
 <?php
   require_once '../libs/common.php';
   require_once '../libs/models/user.php';
+  require_once '../libs/models/move.php';
   require_once '../libs/models/Pokemon.php';
   require_once '../libs/models/trainer_pokemon.php';
 
@@ -11,7 +12,10 @@
             $user = $_SESSION['kirjautunut'];
             $usid = $user->getId();
             addToUser($_POST['idToAdd'], $usid);
-        }
+        //} elseif (isset ($_POST['getMoves'])) {
+            
+        
+    }
     } 
   $sivu = 1;
   if (isset($_GET['sivu'])) {

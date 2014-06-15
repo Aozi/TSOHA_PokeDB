@@ -7,7 +7,9 @@
   }
   
   function isUserLogged() {
-    session_start();
+        if(session_id() == '') {
+            session_start();
+        }
     if (isset($_SESSION['admin'])) {
         return 2;
     }
