@@ -4,5 +4,6 @@
 
 [Pokemon tietokanta](http://advancedkittenry.github.io/suunnittelu_ja_tyoymparisto/aiheet/Pokemon-kanta.html)
 
-
 [Dokumentaatio] (https://github.com/Aozi/TSOHA_PokeDB/blob/master/doc/Doc.pdf?raw=true)
+
+[Etusivu] (http://nikonovi.users.cs.helsinki.fi/PokeDB/html-demo/Etusivu.php)
