@@ -75,7 +75,7 @@ class Pokemon {
         }
         return $tulokset;           
     }
-    
+
     /*
      * Palauttaa Pokemonin tiedot
      */
@@ -126,6 +126,7 @@ class Pokemon {
         }
         return $tulokset;        
     }
+
     public static function deletePoke($p_id) {
         $sql = "DELETE FROM Pokemon WHERE poke_id = ? RETURNING poke_id";
         $kysely = getTietokantayhteys()->prepare($sql);
@@ -147,6 +148,7 @@ class Pokemon {
             return false;
         }
     }
+
     
     public function getType() {
        if(is_null($this->type2)) {
@@ -180,6 +182,7 @@ class Pokemon {
             default: return null;
         }
     }
+
     public function setPoke_name($poke_name) {
         $this->poke_name = $poke_name;
     }

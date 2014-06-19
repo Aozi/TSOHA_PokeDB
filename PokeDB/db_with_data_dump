@@ -29,6 +29,34 @@ CREATE TABLE db_user (
 ALTER TABLE public.db_user OWNER TO nikonovi;
 
 --
+-- Name: db_user_user_id_seq; Type: SEQUENCE; Schema: public; Owner: nikonovi
+--
+
+CREATE SEQUENCE db_user_user_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MAXVALUE
+    NO MINVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.db_user_user_id_seq OWNER TO nikonovi;
+
+--
+-- Name: db_user_user_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: nikonovi
+--
+
+ALTER SEQUENCE db_user_user_id_seq OWNED BY db_user.user_id;
+
+
+--
+-- Name: db_user_user_id_seq; Type: SEQUENCE SET; Schema: public; Owner: nikonovi
+--
+
+SELECT pg_catalog.setval('db_user_user_id_seq', 2, true);
+
+
+--
 -- Name: moves; Type: TABLE; Schema: public; Owner: nikonovi; Tablespace: 
 --
 
@@ -169,6 +197,13 @@ CREATE TABLE types (
 ALTER TABLE public.types OWNER TO nikonovi;
 
 --
+-- Name: user_id; Type: DEFAULT; Schema: public; Owner: nikonovi
+--
+
+ALTER TABLE ONLY db_user ALTER COLUMN user_id SET DEFAULT nextval('db_user_user_id_seq'::regclass);
+
+
+--
 -- Name: cust_id; Type: DEFAULT; Schema: public; Owner: nikonovi
 --
 
@@ -180,6 +215,8 @@ ALTER TABLE ONLY trainer_pokemon ALTER COLUMN cust_id SET DEFAULT nextval('train
 --
 
 COPY db_user (user_id, username, password) FROM stdin;
+1	secret_admin	superpassword                                                   
+2	kayttaja	salasana                                                        
 \.
 
 

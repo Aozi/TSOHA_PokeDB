@@ -1,12 +1,4 @@
-#Tietokantasovellus Pokemon Tietokanta
-
-##Työn aihe
-
-[Pokemon tietokanta](http://advancedkittenry.github.io/suunnittelu_ja_tyoymparisto/aiheet/Pokemon-kanta.html)
-
-
-[Dokumentaatio] (https://github.com/Aozi/TSOHA_PokeDB/blob/master/doc/Doc.pdf?raw=true)
-
+<<<<<<< HEAD
 Asennusohjeet:
 
 1. Aseta kaikki tiedostot nettiin näkyvään kansioon, esim htdocs.
@@ -39,3 +31,6 @@ Suurimmat puutteet järjestelmässä ovat:
 - Admin voi poistaa, mutta ei toistaiseksi voi lisätä pokemoneja
 - HAkutoiminto puuttuu
 - Vertailutoiminnot puuttuvat
+=======
+[Etusivu] (http://nikonovi.users.cs.helsinki.fi/PokeDB/html-demo/Etusivu.php)
+
