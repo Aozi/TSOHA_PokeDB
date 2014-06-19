@@ -13,24 +13,26 @@ class move {
         $this->move_name = $move_name;
         $this->description = $description;
         $this->power = $power;
-        $this->move_PP = $move_PP;
+        $this->move_PP = $move_pp;
         $this->accuarcy = $accuarcy;
     }
     
     public function getMove($m_id) {
-        $sql = "SELECT move_id,move_name,description,power,move_PP,accuarcy FROM moves WHERE move_id == ?";
+        $sql = "SELECT move_id,move_name,description,power,move_PP,accuarcy FROM moves WHERE move_id = ?";
         $kysely = getTietokantayhteys()->prepare($sql);
-        $move_data = $kysely->execute(array($m_id));
-        $move = new move($move_data->move_id,$move_data->move_name,$move_data->description,$move_data->power,$move_data->move_PP,$move_data->accuarcy);
+        $kysely->execute(array($m_id));
+        $move_data = $kysely->fetchObject();
+        $move = new move($move_data->move_id,$move_data->move_name,$move_data->description,$move_data->power,$move_data->move_pp,$move_data->accuarcy);
         return $move;
     }
     
     public function getPokemonForMove() {
-        $sql = "SELECT distinct poke_id FROM poke_moves WHERE move_id == ? ORDER BY poke_id ASC";
+        $sql = "SELECT distinct poke_id FROM poke_moves WHERE move_id = ? ORDER BY poke_id ASC";
         $kysely = getTietokantayhteys()->prepare($sql);
         $move_data = $kysely->execute(array($m_id));
         return $move_data;
     }
+    
     
     public function getMove_id() {
         return $this->move_id;

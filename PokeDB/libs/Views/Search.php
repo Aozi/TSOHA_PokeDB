@@ -22,6 +22,8 @@
             <th>SP DEF</th>
             <th>SPD</th>
             <th>EV Yield</th>
+            <th>Type</th>
+            <th>Move List</th>
         </tr>
     </thead>
     <tbody>
@@ -39,12 +41,13 @@
             <td><?php echo $poke->getSp_def(); ?></td>
             <td><?php echo $poke->getSpeed(); ?></td>
             <td><?php echo $poke->getEv_yield(); ?></td>
+            <td><?php echo $poke->getType();?></td>
+            <td><button type="submit" value="<?php echo $poke->getPoke_id(); ?>" class="btn collapse-data-btn btn-xs btn-default" data-toggle="collapse" href="#moves<?php echo $poke->getPoke_id(); ?>"><span class="glyphicon glyphicon-chevron-down"></span>Moves</button></td>"
             <?php if (isUserLogged() == 1) : ?>
                 <form method="post" action="Search.php">
                     <td><button type="submit" value="<?php echo $poke->getPoke_id(); ?>" name="idToAdd" class="btn btn-xs btn-default"><span class="glyphicon glyphicon-ok"></span> Add</button></td>
                 </form>
             <?php endif;?>
-        </tr>
         
         <?php endforeach; ?>
     </tbody>
